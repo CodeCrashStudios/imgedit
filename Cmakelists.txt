@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(imgedit)
+
+set(CMAKE_C_STANDARD 99)
+
+add_subdirectory("thirdparty/raylib")
+
+# Adding our source files
+file(GLOB_RECURSE SOURCES "src/*.c") # Define PROJECT_SOURCES as a list of all source files
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE vendor/raylib/src)
+
+target_link_libraries(${PROJECT_NAME} raylib)
